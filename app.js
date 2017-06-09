@@ -2,25 +2,33 @@ var firstAndPike = {
   minHourlyCustomers: 23,
   maxHourlyCustomers: 65,
   averageCookiesPerCustomer: 6.3,
+  cookiesSoldPerDay: [],
   randomNumberOfCustomersPerHour: function(){
-    return Math.floor(Math.random() * (firstAndPike.maxHourlyCustomers - firstAndPike.minHourlyCustomers + 1)) + firstAndPike.minHourlyCustomers;
+    return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
+  },
+
+  simulateAmountsOfCookiesPurchasedForEachHour : function(){
+    for(var i = 0; i < 15; i++){
+      var firstAndPikeSimulatedAmountsOfCookiesPurchasedForEachHour =
+      Math.floor(this.averageCookiesPerCustomer * this.randomNumberOfCustomersPerHour());
+      this.cookiesSoldPerDay.push(firstAndPikeSimulatedAmountsOfCookiesPurchasedForEachHour);
+      console.log(this.cookiesSoldPerDay);
+      //firstAndPikeSimulatedAmountsOfCookiesPurchasedPerDay.push(firstAndPikeSimulatedAmountsOfCookiesPurchasedForEachHour);
+    }
   }
 }
 
-firstAndPike.randomNumberOfCustomersPerHour();
+firstAndPike.simulateAmountsOfCookiesPurchasedForEachHour();
+var ulFirstAndPike = document.getElementById('firstAndPike');
+console.log(ulFirstAndPike);
+console.log(firstAndPike.cookiesSoldPerDay);
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-  var firstAndPikeSimulatedAmountsOfCookiesPurchasedPerDay = [];
-
-  var storeNumberHoursOpen = 14;
-
-    for(var i = 0; i < 14; i++){
-      var firstAndPikeSimulatedAmountsOfCookiesPurchasedForEachHour =
-      Math.floor(firstAndPike.averageCookiesPerCustomer * firstAndPike.randomNumberOfCustomersPerHour());
-      firstAndPikeSimulatedAmountsOfCookiesPurchasedPerDay.push(firstAndPikeSimulatedAmountsOfCookiesPurchasedForEachHour);
-    }
-
-console.log(firstAndPikeSimulatedAmountsOfCookiesPurchasedPerDay);
-
+for (i=0; i<firstAndPike.cookiesSoldPerDay.length; i++){
+  var newli = document.createElement('li');
+    newli.textContent = hours[i] + ': ' + firstAndPike.cookiesSoldPerDay[i] + ' cookies';
+    ulFirstAndPike.appendChild(newli);
+}
 
 var seaTacAirport = {
   minHourlyCustomers: 3,
@@ -43,7 +51,7 @@ seaTacAirport.randomNumberOfCustomersPerHour();
       seaTacAirportSimulatedAmountsOfCookiesPurchasedPerDay.push(seaTacAirportSimulatedAmountsOfCookiesPurchasedForEachHour);
     }
 
-console.log(simulatedAmountsOfCookiesPurchasedPerDay);
+
 
 
 var seattleCenter = {
