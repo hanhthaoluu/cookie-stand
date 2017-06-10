@@ -75,6 +75,7 @@ var seattleCenter = {
   randomNumberOfCustomersPerHour: function(){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
+
   simulateAmountsOfCookiesPurchasedForEachHour: function(){
     for(var i = 0; i < 15; i++){
       var simulateAmountsOfCookiesPurchasedForEachHour =
@@ -97,6 +98,7 @@ for (var i = 0; i < seattleCenter.cookiesSoldPerDay.length; i++){
   ulSeattleCenter.appendChild(newli);
 }
 
+
 var captitolHill = {
   minHourlyCustomers: 20,
   maxHourlyCustomers: 38,
@@ -105,6 +107,7 @@ var captitolHill = {
   randomNumberOfCustomersPerHour: function(min,max){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
+  
   simulateAmountsOfCookiesPurchasedForEachHour: function(){
     for( var i = 0; i < 15; i++){
       var simulateAmountsOfCookiesPurchasedForEachHour =

@@ -1,0 +1,97 @@
+.cookiesSoldPerDay {
+  font-size: 22;
+}
+
+
+/*Public-facing page*/
+* {
+    /*border: 1px solid rgba(0,0,0,0.3);*/
+    font-family: helvetica, serif;
+    margin:0;
+    padding: 15px;
+    font-size: 22px;
+    line-height: 2em;
+    background-color: #f4eddc;
+    font-weight: bolder;
+    overflow: scroll;
+  }
+
+  div.background {
+    background: (https://github.com/codefellows/seattle-201n8/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
+    border: 2px solid black;
+  }
+
+  div.transbox {
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid brown;
+    padding: 0;
+
+  }
+
+  div.transbox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    color: 000000;
+    font-family: Lobster;
+    font-size: 34px;
+  }
+
+  #title {
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    color: 000000;
+    font-family: Lobster;
+    font-size: 34px;
+  }
+
+  #pugetSound{
+    font-style: Pacifico;
+    font-style: italic;
+    color: blue;
+  }
+
+  #ingredients {
+    color: green;
+    font-style: italic;
+  }
+
+  #fourKindsOfCookies {
+      font-style: italic;
+      font-family: Lobster;
+      color: red;
+    }
+  body {
+
+
+  font-family: Josefin Sans;
+  text-align: center;
+  font-weight: bold;
+  /*opacity: 0.5;*/
+  }
+
+
+
+.main-content {
+    margin: 20px;
+    width: 1000px;
+    padding-bottom: 30px;
+    color: brown;
+    font-family: PT Sans;
+    margin: auto;
+    width: 1100px;
+    text-align: center;
+  }
+
+  #locations{
+    color:#b666d2;
+    font-style: oblique;
+    font-family: cabin;
+  }
+
+footer {
+  color: black;
+  font-family: Georgia, sans-serif;
+}
