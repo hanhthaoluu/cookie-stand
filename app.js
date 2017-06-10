@@ -5,6 +5,15 @@ var firstAndPike = {
   maxHourlyCustomers: 65,
   averageCookiesPerCustomer: 6.3,
   cookiesSoldPerDay: [],
+  totalSales: function(){
+    var total = 0;
+    for(var i = 0; i < 15; i++){
+      var total = (total + this.cookiesSoldPerDay[i]);
+      console.log('Total sales = ' + total);
+    }
+    return total;
+  },
+
   randomNumberOfCustomersPerHour: function(){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
@@ -17,9 +26,11 @@ var firstAndPike = {
       console.log(this.cookiesSoldPerDay);
     }
   }
+
 }
 
 firstAndPike.simulateAmountsOfCookiesPurchasedForEachHour();
+firstAndPike.totalSales();
 
 var ulFirstAndPike = document.getElementById('firstAndPike');
 console.log(ulFirstAndPike);
@@ -32,12 +43,25 @@ for (var i = 0; i < firstAndPike.cookiesSoldPerDay.length; i++){
     ulFirstAndPike.appendChild(newli);
 }
 
+var newli = document.createElement('li');
+  newli.textContent = 'total: ' + firstAndPike.totalSales();
+  ulFirstAndPike.appendChild(newli);
+
+
 
 var seaTacAirport = {
   minHourlyCustomers: 3,
   maxHourlyCustomers: 24,
   averageCookiesPerCustomer: 1.2,
   cookiesSoldPerDay: [],
+  totalSales: function(){
+    var total = 0;
+    for(var i = 0; i < 15; i++){
+      var total = (total + this.cookiesSoldPerDay[i]);
+      console.log('Total sales: ' + total);
+    }
+    return total;
+  },
 
   randomNumberOfCustomersPerHour: function (){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
@@ -54,6 +78,7 @@ var seaTacAirport = {
 }
 
 seaTacAirport.simulateAmountsOfCookiesPurchasedForEachHour();
+seaTacAirport.totalSales();
 
 var ulSeaTacAirPort = document.getElementById('seaTacAirport');
 console.log(ulSeaTacAirPort);
@@ -66,12 +91,24 @@ for (var i=0; i < seaTacAirport.cookiesSoldPerDay.length; i++){
     ulSeaTacAirPort.appendChild(newli);
 }
 
+  var newli = document.createElement('li');
+  newli.textContent = 'Total sales: ' + seaTacAirport.totalSales();
+  ulSeaTacAirPort.appendChild(newli);
 
 var seattleCenter = {
   minHourlyCustomers: 11,
   maxHourlyCustomers: 38,
   averageCookiesPerCustomer: 3.7,
   cookiesSoldPerDay: [],
+  totalSales: function(){
+    var total = 0;
+    for (var i = 0; i < 15; i++){
+      var total = (total + this.cookiesSoldPerDay[i]);
+      console.log('total sales at Seattle Center: ' + total);
+    }
+    return total;
+  },
+
   randomNumberOfCustomersPerHour: function(){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
@@ -87,6 +124,8 @@ var seattleCenter = {
 }
 
 seattleCenter.simulateAmountsOfCookiesPurchasedForEachHour();
+seattleCenter.totalSales();
+
 var ulSeattleCenter = document.getElementById('seattleCenter');
 console.log(ulSeattleCenter);
 console.log(seattleCenter.cookiesSoldPerDay);
@@ -98,6 +137,9 @@ for (var i = 0; i < seattleCenter.cookiesSoldPerDay.length; i++){
   ulSeattleCenter.appendChild(newli);
 }
 
+var newli = document.createElement('li');
+newli.textContent = 'Total sales: ' + seattleCenter.totalSales();
+ulSeattleCenter.appendChild(newli);
 
 var captitolHill = {
   minHourlyCustomers: 20,
@@ -107,7 +149,7 @@ var captitolHill = {
   randomNumberOfCustomersPerHour: function(min,max){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
-  
+
   simulateAmountsOfCookiesPurchasedForEachHour: function(){
     for( var i = 0; i < 15; i++){
       var simulateAmountsOfCookiesPurchasedForEachHour =
