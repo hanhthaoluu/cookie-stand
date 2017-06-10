@@ -9,7 +9,7 @@ var firstAndPike = {
     var total = 0;
     for(var i = 0; i < 15; i++){
       var total = (total + this.cookiesSoldPerDay[i]);
-      console.log('Total sales = ' + total);
+      console.log('Total Sales Each Day At First And Pike = ' + total);
     }
     return total;
   },
@@ -44,7 +44,7 @@ for (var i = 0; i < firstAndPike.cookiesSoldPerDay.length; i++){
 }
 
 var newli = document.createElement('li');
-  newli.textContent = 'total: ' + firstAndPike.totalSales();
+  newli.textContent = 'Total Sales Each Day At First And Pike: ' + firstAndPike.totalSales();
   ulFirstAndPike.appendChild(newli);
 
 
@@ -58,7 +58,7 @@ var seaTacAirport = {
     var total = 0;
     for(var i = 0; i < 15; i++){
       var total = (total + this.cookiesSoldPerDay[i]);
-      console.log('Total sales: ' + total);
+      console.log('Total Sales Each Day At SeaTac Airport: ' + total);
     }
     return total;
   },
@@ -92,7 +92,7 @@ for (var i=0; i < seaTacAirport.cookiesSoldPerDay.length; i++){
 }
 
   var newli = document.createElement('li');
-  newli.textContent = 'Total sales: ' + seaTacAirport.totalSales();
+  newli.textContent = 'Total Sales Each Day At SeaTac Airport: ' + seaTacAirport.totalSales();
   ulSeaTacAirPort.appendChild(newli);
 
 var seattleCenter = {
@@ -104,7 +104,7 @@ var seattleCenter = {
     var total = 0;
     for (var i = 0; i < 15; i++){
       var total = (total + this.cookiesSoldPerDay[i]);
-      console.log('total sales at Seattle Center: ' + total);
+      console.log('Total Sales Each Day At Seattle Center: ' + total);
     }
     return total;
   },
@@ -138,14 +138,24 @@ for (var i = 0; i < seattleCenter.cookiesSoldPerDay.length; i++){
 }
 
 var newli = document.createElement('li');
-newli.textContent = 'Total sales: ' + seattleCenter.totalSales();
+newli.textContent = 'Total Sales Each Day At Seattle Center: ' + seattleCenter.totalSales();
 ulSeattleCenter.appendChild(newli);
+
+
 
 var captitolHill = {
   minHourlyCustomers: 20,
   maxHourlyCustomers: 38,
   averageCookiesPerCustomer: 2.3,
   cookiesSoldPerDay: [],
+  totalSales: function(){
+    var total = 0;
+    for(var i = 0; i < 15; i++){
+      var total = total + this.cookiesSoldPerDay[i];
+      console.log('Total Sales Each Day At Captitol Hill: ' + total);
+    }
+    return total;
+  },
   randomNumberOfCustomersPerHour: function(min,max){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
   },
@@ -161,6 +171,8 @@ var captitolHill = {
 }
 
 captitolHill.simulateAmountsOfCookiesPurchasedForEachHour();
+captitolHill.totalSales();
+
 var ulCapitolHill = document.getElementById('captitolHill');
 console.log(ulCapitolHill);
 console.log(captitolHill.cookiesSoldPerDay);
@@ -172,12 +184,24 @@ for (var i = 0; i < captitolHill.cookiesSoldPerDay.length; i++){
   ulCapitolHill.appendChild(newli);
 }
 
+var newli = document.createElement('li');
+newli.textContent = 'Total Sales Each Day At Capitol Hill: ' + captitolHill.totalSales();
+ulCapitolHill.appendChild(newli);
+
 
 var alki = {
   minHourlyCustomers: 2,
   maxHourlyCustomers: 16,
   averageCookiesPerCustomer: 4.6,
   cookiesSoldPerDay: [],
+  totalSales: function(){
+    var total = 0;
+    for(var i = 0; i < 15; i++){
+      var total = total + this.cookiesSoldPerDay[i];
+      console.log('Total Sales Each Day At Alki: ' + total);
+    }
+    return total;
+  },
 
   randomNumberOfCustomersPerHour: function(){
     return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
@@ -193,6 +217,8 @@ var alki = {
 }
 
 alki.simulateAmountsOfCookiesPurchasedForEachHour();
+alki.totalSales();
+
 var ulAlki = document.getElementById('alki');
 console.log(ulAlki);
 console.log(alki.cookiesSoldPerDay);
@@ -203,3 +229,7 @@ for (var i = 0; i < alki.cookiesSoldPerDay.length; i++){
   newli.textContent = hours[i] + ': ' + alki.cookiesSoldPerDay[i] + ' coookies';
   ulAlki.appendChild(newli);
 }
+
+var newli = document.createElement('li');
+newli.textContent = 'Total Sales Each Day At Alki: ' + alki.totalSales();
+ulAlki.appendChild(newli);
