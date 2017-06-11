@@ -1,29 +1,98 @@
 'use strict';
+//
+function Store(minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer) {
+  this.minHourlyCustomers = minHourlyCustomers;
+  this.maxHourlyCustomers = maxHourlyCustomers;
+  this.averageCookiesPerCustomer = averageCookiesPerCustomer;
+  this.cookiesSoldPerDay = [];
+  this.totalSales = 0;
+  this.randomNumberOfCustomersPerHour = 0;
+  this.simulateAmountsOfCookiesPurchasedForEachHour = 0;
+}
 
-var firstAndPike = {
+function totalSales(store){
+  var total = 0;
+  for(var i = 0; i < 15; i++){
+    var total = (total + store.cookiesSoldPerDay[i]);
+    console.log('Total Sales Each Day At ' + store + ': ' + total);
+  }
+  //return total;
+  store.totalSales = total;
+}
+
+function randomNumberOfCustomersPerHour(store){
+  return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1)) + store.minHourlyCustomers;
+}
+
+function simulateAmountsOfCookiesPurchasedForEachHour(store){
+  for(var i = 0; i < 15; i++){
+    var simulateAmountsOfCookiesPurchasedForEachHour =
+    Math.floor(store.averageCookiesPerCustomer * store.randomNumberOfCustomersPerHour);
+    store.cookiesSoldPerDay.push(simulateAmountsOfCookiesPurchasedForEachHour);
+    console.log(store.cookiesSoldPerDay);
+  }
+}
+
+var firstAndPike = new Store('23', '65', '6.3');
+console.log(firstAndPike);
+
+simulateAmountsOfCookiesPurchasedForEachHour(firstAndPike);
+totalSales(firstAndPike);
+
+
+var seaTacAirport = new Store('3', '24', '1.2');
+console.log(seaTacAirport);
+
+simulateAmountsOfCookiesPurchasedForEachHour(seaTacAirport);
+totalSales(seaTacAirport);
+
+
+var seattleCenter = new Store('11', '38', '3.7');
+console.log(seattleCenter);
+
+simulateAmountsOfCookiesPurchasedForEachHour(seattleCenter);
+totalSales(seattleCenter);
+
+
+var captitolHill = new Store('20', '38', '2.3');
+console.log(captitolHill);
+
+simulateAmountsOfCookiesPurchasedForEachHour(captitolHill);
+totalSales(captitolHill);
+
+
+var alki = new Store('2', '16', '4.6');
+console.log(alki);
+
+simulateAmountsOfCookiesPurchasedForEachHour(alki);
+totalSales(alki);
+
+//MONDAY LITERALS-OBJECTS LITERALS
+/*var firstAndPike = {
   minHourlyCustomers: 23,
   maxHourlyCustomers: 65,
   averageCookiesPerCustomer: 6.3,
   cookiesSoldPerDay: [],
-  totalSales: function(){
+  totalSales: function(store){
     var total = 0;
     for(var i = 0; i < 15; i++){
-      var total = (total + this.cookiesSoldPerDay[i]);
+      var total = (total + store.cookiesSoldPerDay[i]);
       console.log('Total Sales Each Day At First And Pike = ' + total);
     }
-    return total;
+    //return total;
+    store.totalSales = total;
   },
 
-  randomNumberOfCustomersPerHour: function(){
-    return Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
+  randomNumberOfCustomersPerHour: function(store){
+    return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1)) + store.minHourlyCustomers;
   },
 
-  simulateAmountsOfCookiesPurchasedForEachHour: function(){
+  simulateAmountsOfCookiesPurchasedForEachHour: function(store){
     for(var i = 0; i < 15; i++){
       var simulateAmountsOfCookiesPurchasedForEachHour =
-      Math.floor(this.averageCookiesPerCustomer * this.randomNumberOfCustomersPerHour());
-      this.cookiesSoldPerDay.push(simulateAmountsOfCookiesPurchasedForEachHour);
-      console.log(this.cookiesSoldPerDay);
+      Math.floor(store.averageCookiesPerCustomer * store.randomNumberOfCustomersPerHour);
+      store.cookiesSoldPerDay.push(simulateAmountsOfCookiesPurchasedForEachHour);
+      console.log(store.cookiesSoldPerDay);
     }
   }
 
@@ -31,7 +100,7 @@ var firstAndPike = {
 
 firstAndPike.simulateAmountsOfCookiesPurchasedForEachHour();
 firstAndPike.totalSales();
-
+*/
 var ulFirstAndPike = document.getElementById('firstAndPike');
 console.log(ulFirstAndPike);
 console.log(firstAndPike.cookiesSoldPerDay);
@@ -44,7 +113,7 @@ for (var i = 0; i < firstAndPike.cookiesSoldPerDay.length; i++){
 }
 
 var newli = document.createElement('li');
-  newli.textContent = 'Total Sales Each Day At First And Pike: ' + firstAndPike.totalSales();
+  newli.textContent = 'Total Sales Each Day At First And Pike: ' + firstAndPike.totalSales;
   ulFirstAndPike.appendChild(newli);
 
 
