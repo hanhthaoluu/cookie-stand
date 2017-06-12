@@ -11,20 +11,6 @@ function Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookies
   this.totalSales = totalSales(this);
 }
 
-
-/*
-function openHours(store){
-  var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-  for(var i = 0; i < hours.length; i++){
-    console.log (hours[i]);
-  }
-  store.openHours = openHours(store)
-}
-*/
-
-
-
-
 function totalSales(store){
   var total = 0;
   for(var i = 0; i < 15; i++){

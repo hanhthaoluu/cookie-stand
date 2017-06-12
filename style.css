@@ -1,7 +1,25 @@
-.cookiesSoldPerDay {
-  font-size: 22;
+/*sales.html*/
+#generated-table {
+  border: 3px groove black;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+th {
+  text-transform: uppercase;
+  border: 2px solid grey;
+  border-bottom: 4px solid blue;
+  text-align: center;
+}
+
+
+td {
+  border: 2px solid grey;
+  empty-cells: show;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /*Public-facing page*/
 * {
