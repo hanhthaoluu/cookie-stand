@@ -108,6 +108,36 @@ for(var i = 0; i < stores.length; i++) {
 }
 
 
+var newStoreArray = [];
+var stores = [firstAndPike, seaTacAirport, seattleCenter, captitolHill, alki];
+stores = stores.concat(newStoreArray);
+console.log(stores);
+
+var formEl = document.getElementById('form');
+
+formEl.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event){
+  event.preventDefault();
+
+  var storeName = event.target.storeName.value;
+  var minHourlyCustomers = event.target.minHourlyCustomers.value;
+  var maxHourlyCustomers = event.target.maxHourlyCustomers.value;
+  var averageCookiesPerCustomer = event.target.averageCookiesPerCustomer.value;
+
+  var newItem = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
+  makeRow(newItem);
+
+    console.log(event.target.storeName.value);
+    console.log(event.target.minHourlyCustomers.value);
+    console.log(event.target.maxHourlyCustomers.value);
+}
+
+
+
+
+
+
 //MONDAY LITERALS-OBJECTS LITERALS
 /*var firstAndPike = {
   minHourlyCustomers: 23,
