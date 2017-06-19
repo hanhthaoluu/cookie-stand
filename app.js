@@ -120,17 +120,25 @@ formEl.addEventListener('submit', handleSubmit);
 function handleSubmit(event){
   event.preventDefault();
 
+  console.log(event.target.storeName.value);
+  console.log(event.target.minHourlyCustomers.value);
+  console.log(event.target.maxHourlyCustomers.value);
+
   var storeName = event.target.storeName.value;
   var minHourlyCustomers = event.target.minHourlyCustomers.value;
   var maxHourlyCustomers = event.target.maxHourlyCustomers.value;
   var averageCookiesPerCustomer = event.target.averageCookiesPerCustomer.value;
 
-  var newItem = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
-  makeRow(newItem);
+  //create a new instance of a Store, and save it into newItem
 
-    console.log(event.target.storeName.value);
-    console.log(event.target.minHourlyCustomers.value);
-    console.log(event.target.maxHourlyCustomers.value);
+  // storeName = "cats";
+  // minHourlyCustomer = 1;
+  // maxHourlyCustomer = 6;
+  // averageCookiesPerCustomer = 15;
+
+  var store = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
+
+  makeRow(store);
 }
 
 
