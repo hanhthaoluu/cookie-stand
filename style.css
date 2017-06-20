@@ -1,9 +1,23 @@
+* {
+    /*border: 1px solid rgba(0,0,0,0.3);*/
+    font-family: helvetica, arial, serif;
+    margin:0;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 2em;
+    background-color: #f4eddc;
+    font-weight: bolder;
+  }
+
 /*sales.html*/
 #generated-table {
   border: 3px groove black;
   text-align: center;
   border-collapse: collapse;
   border-spacing: 0;
+  width: 30%;
+  margin:0;
+  padding: 0;
 }
 
 th {
@@ -22,22 +36,11 @@ td {
 }
 
 /*Public-facing page*/
-* {
-    /*border: 1px solid rgba(0,0,0,0.3);*/
-    font-family: helvetica, serif;
-    margin:0;
-    padding: 20px;
-    font-size: 20px;
-    line-height: 2em;
-    background-color: #f4eddc;
-    font-weight: bolder;
-
-  }
 
 #nav, #product, #locations, #the-return-of-our-salmons, #contact-info {
   margin-top: 20px;
   padding: 10px 0px 5px 0px;
-  border: 1px solid;
+  border: 2px groove black;
 }
 
   div.title {
@@ -48,7 +51,7 @@ td {
     margin-right: 5px;
     margin-left: 0;
     /*z-index: 10;*/
-    width: 96.5%;
+    width: 98%;
     background: (https://github.com/codefellows/seattle-201n8/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
     border: 2px solid black;
   }
@@ -90,15 +93,15 @@ td {
     font-family: Arial;
   }
 
-  #nav {
-    /*margin-top: 300px;*/
-    line-height: 12px;
-  }
+  #nav{
 
-  ul {
-    padding: 5px;
+  }
+  .navlist {
+    /*margin-top: 300px;*/
     list-style-position: inside;
     display: inline;
+    padding: 5px;
+
   }
 
   ol {
@@ -118,9 +121,9 @@ td {
   }
 
   #fourKindsOfCookies {
-      font-style: italic;
-      font-family: 'Lobster', cursive;
-      color: red;
+    font-style: italic;
+    font-family: 'Lobster', cursive;
+    color: red;
   }
 
 body {
