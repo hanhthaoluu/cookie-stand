@@ -1,22 +1,54 @@
-.cookiesSoldPerDay {
-  font-size: 22;
+/*sales.html*/
+#generated-table {
+  border: 3px groove black;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+th {
+  text-transform: uppercase;
+  border: 2px solid grey;
+  border-bottom: 4px solid blue;
+  text-align: center;
+}
+
+
+td {
+  border: 2px solid grey;
+  empty-cells: show;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /*Public-facing page*/
 * {
     /*border: 1px solid rgba(0,0,0,0.3);*/
     font-family: helvetica, serif;
     margin:0;
-    padding: 15px;
-    font-size: 22px;
+    padding: 20px;
+    font-size: 20px;
     line-height: 2em;
     background-color: #f4eddc;
     font-weight: bolder;
-    overflow: scroll;
+
   }
 
-  div.background {
+#nav, #product, #locations, #the-return-of-our-salmons, #contact-info {
+  margin-top: 20px;
+  padding: 10px 0px 5px 0px;
+  border: 1px solid;
+}
+
+  div.title {
+    /*position: fixed;*/
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    margin-right: 5px;
+    margin-left: 0;
+    /*z-index: 10;*/
+    width: 96.5%;
     background: (https://github.com/codefellows/seattle-201n8/blob/master/class-06-dom-objects-domain_modeling/assets/salmon.png?raw=true);
     border: 2px solid black;
   }
@@ -25,7 +57,7 @@
     margin: 0;
     background-color: #ffffff;
     border: 1px solid brown;
-    padding: 0;
+    padding: 5px;
 
   }
 
@@ -34,23 +66,50 @@
     padding: 0;
     font-weight: bolder;
     color: 000000;
-    font-family: Lobster;
+    font-family: 'Lobster', cursive;
     font-size: 34px;
+
+
   }
 
   #title {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     font-weight: bolder;
     color: 000000;
-    font-family: Lobster;
-    font-size: 34px;
+    font-family: 'Indie flower';
+    font-size: 26px;
   }
 
-  #pugetSound{
-    font-style: Pacifico;
-    font-style: italic;
-    color: blue;
+  #patsSalmonCookies {
+    font-family: 'Lobster';
+    font-size: 25px;
+  }
+
+  #coffeeCompanion {
+    font-family: Arial;
+  }
+
+  #nav {
+    /*margin-top: 300px;*/
+    line-height: 12px;
+  }
+
+  ul {
+    padding: 5px;
+    list-style-position: inside;
+    display: inline;
+  }
+
+  ol {
+    list-style-position: inside;
+    padding: 10px;
+    margin: 20px 0px 0px 0px;
+    line-height: 5px;
+  }
+
+  #pugetSound {
+    font-family: 'Indie flower', cursive;
   }
 
   #ingredients {
@@ -60,38 +119,27 @@
 
   #fourKindsOfCookies {
       font-style: italic;
-      font-family: Lobster;
+      font-family: 'Lobster', cursive;
       color: red;
-    }
-  body {
+  }
 
-
-  font-family: Josefin Sans;
+body {
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  color: brown;
+  font-family: PT Sans;
+  width: 1300px;
   text-align: center;
-  font-weight: bold;
-  /*opacity: 0.5;*/
   }
 
+#locations {
+    color:purple;
+    font-family: 'Overpass', sans-serif;
+}
 
-
-.main-content {
-    margin: 20px;
-    width: 1000px;
-    padding-bottom: 30px;
-    color: brown;
-    font-family: PT Sans;
-    margin: auto;
-    width: 1100px;
-    text-align: center;
-  }
-
-  #locations{
-    color:#b666d2;
-    font-style: oblique;
-    font-family: cabin;
-  }
-
-footer {
+#contact-info {
   color: black;
   font-family: Georgia, sans-serif;
+  margin-bottom: 200px;
 }
