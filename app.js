@@ -14,7 +14,7 @@ function Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookies
 function totalSales(store){
   var total = 0;
   for(var i = 0; i < 15; i++){
-    var total = (total + store.cookiesSoldPerDay[i]);
+    total = total + store.cookiesSoldPerDay[i];
     console.log('Total Sales Each Day At ' + store + ': ' + total);
   }
   return total;
@@ -36,6 +36,8 @@ function simulateAmountsOfCookiesPurchasedForEachHour(store){
 
   return cookiesSoldPerDay;
 }
+
+
 
 
 
@@ -107,11 +109,20 @@ for(var i = 0; i < stores.length; i++) {
   makeRow(stores[i]);
 }
 
+function makeFooter() {
+  var eachStoreHourlyTotal = [];
+  for (var hours = 0; hours < 15; hours++){
+    var hourlyTotal = 0;
+    for (var i = 0; i < stores.length; i++){
+      hourlyTotal = hourlyTotal + stores[i].cookiesSoldPerDay[hours];
+    }
+    eachStoreHourlyTotal.push(hourlyTotal);
 
-var newStoreArray = [];
-var stores = [firstAndPike, seaTacAirport, seattleCenter, captitolHill, alki];
-stores = stores.concat(newStoreArray);
-console.log(stores);
+  }
+    console.log('!!!!!!!!!!!!!hourly sales at each store ' + eachStoreHourlyTotal);
+}
+
+makeFooter();
 
 var formEl = document.getElementById('form');
 
@@ -139,6 +150,8 @@ function handleSubmit(event){
   var store = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
 
   makeRow(store);
+
+  stores.push(store);
 }
 
 
