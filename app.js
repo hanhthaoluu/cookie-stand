@@ -19,7 +19,12 @@ function totalSales(store){
   }
   return total;
 }
-
+/*function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+*/
 function randomNumberOfCustomersPerHour(store){
   return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1)) + store.minHourlyCustomers;
 }
@@ -62,6 +67,11 @@ var tableEl = document.getElementById('generated-table');
 
 var headerEl = document.createElement('thead');
 tableEl.appendChild(headerEl);
+
+var footerEl = document.createElement('tfoot');
+tableEl.appendChild(footerEl);
+
+
 
 var tableBodyEl = document.createElement('tbody');
 tableEl.appendChild(tableBodyEl);
@@ -109,20 +119,31 @@ for(var i = 0; i < stores.length; i++) {
   makeRow(stores[i]);
 }
 
-function makeFooter() {
-  var eachStoreHourlyTotal = [];
+function hourlySalesAllStores() {
+  var tableRowEl = document.createElement('tr');
+  footerEl.appendChild(tableRowEl);
+  var hourlyTotalSalesTitle = document.createElement('td');
+  hourlyTotalSalesTitle.textContent = 'Hourly Sales For All Stores';
+  tableRowEl.appendChild(hourlyTotalSalesTitle);
+  var eachStoreHourlyTotal = [''];
   for (var hours = 0; hours < 15; hours++){
     var hourlyTotal = 0;
     for (var i = 0; i < stores.length; i++){
       hourlyTotal = hourlyTotal + stores[i].cookiesSoldPerDay[hours];
     }
-    eachStoreHourlyTotal.push(hourlyTotal);
-
+    //eachStoreHourlyTotal.push(hourlyTotal);
+    var tableFooterEl = document.createElement('td');
+    tableRowEl.appendChild(tableFooterEl);
+    tableFooterEl.textContent = hourlyTotal;
   }
+  var emptyElement = document.createElement('td');
+  tableRowEl.appendChild(emptyElement);
+  emptyElement.textContent = '';
+
     console.log('!!!!!!!!!!!!!hourly sales at each store ' + eachStoreHourlyTotal);
 }
 
-makeFooter();
+hourlySalesAllStores();
 
 var formEl = document.getElementById('form');
 
@@ -131,9 +152,10 @@ formEl.addEventListener('submit', handleSubmit);
 function handleSubmit(event){
   event.preventDefault();
 
-  console.log(event.target.storeName.value);
-  console.log(event.target.minHourlyCustomers.value);
-  console.log(event.target.maxHourlyCustomers.value);
+  console.log('!!!!!!!!!new store\'s name' + event.target.storeName.value);
+  console.log('!!!!!!new minHourlyCustomers' + event.target.minHourlyCustomers.value);
+  console.log('!!!!!!!!!new maxHourlyCustomers' + event.target.maxHourlyCustomers.value);
+  console.log('!!!new averageCookiesPerCustomer' + event.target.averageCookiesPerCustomer.value);
 
   var storeName = event.target.storeName.value;
   var minHourlyCustomers = event.target.minHourlyCustomers.value;
@@ -148,6 +170,8 @@ function handleSubmit(event){
   // averageCookiesPerCustomer = 15;
 
   var store = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
+
+  console.log('!!!!!new store' + store);
 
   makeRow(store);
 
