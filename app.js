@@ -26,20 +26,43 @@ function totalSales(store){
 }
 */
 function randomNumberOfCustomersPerHour(store){
-  return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1)) + store.minHourlyCustomers;
+  console.log('!!!!!!store.maxHourlyCustomers:' + store.maxHourlyCustomers);
+  console.log('!!!!!!store.minHourlyCustomers:' + store.minHourlyCustomers);
+  console.log('!!!!!!store.maxHourlyCustomers:' + store.maxHourlyCustomers);
+  /*return Math.floor(Math.random() * (store.maxHourlyCustomers - store.minHourlyCustomers + 1)) + store.minHourlyCustomers;*/
+  var random = Math.random();
+  console.log('!!!!!!math.random:' + random);
+  var range = store.maxHourlyCustomers - store.minHourlyCustomers + 1;
+  console.log('!!!!!!range:' + range);
+  var rounding = Math.floor(random * range);
+  console.log('!!!!!!math.floor:' + rounding);
+  console.log('!!!!!!!store.minHourlyCustomers' + store.minHourlyCustomers);
+  var returnValue = rounding + store.minHourlyCustomers;
+  console.log('!!!!!!returnValue:' + returnValue);
+  return returnValue;
 }
 
 function simulateAmountsOfCookiesPurchasedForEachHour(store){
+  console.log('!!!!!!!!!!PRINTING store');
+  console.log(store);
+  console.log('done printing');
   var cookiesSoldPerDay = [];
-
+  console.log('!!!!!!!!!!PRINTING' + cookiesSoldPerDay);
   for(var i = 0; i < 15; i++){
-    var simulateAmountsOfCookiesPurchasedForEachHour =
-    Math.floor(store.averageCookiesPerCustomer * randomNumberOfCustomersPerHour(store));
-    cookiesSoldPerDay.push(simulateAmountsOfCookiesPurchasedForEachHour);
-    console.log(cookiesSoldPerDay);
+    var randomNumberOfCustomers = randomNumberOfCustomersPerHour(store);
+    var simulatedAmountsOfCookiesPurchasedForEachHour =
+    Math.floor(store.averageCookiesPerCustomer * randomNumberOfCustomers);
+    cookiesSoldPerDay.push(simulatedAmountsOfCookiesPurchasedForEachHour);
+    console.log('!!!!!!!!!store.averageCookiesPerCustomer:' + store.averageCookiesPerCustomer);
+    console.log('!!!!!!cookiesSoldPerDay:' + cookiesSoldPerDay);
+    console.log('!!!!!!simulatedAmountsOfCookiesPurchasedForEachHour:' + simulatedAmountsOfCookiesPurchasedForEachHour);
+    console.log('!!!!!!randomNumberOfCustomersPerHour:' + randomNumberOfCustomers);
+
   }
 
   return cookiesSoldPerDay;
+
+
 }
 
 
@@ -120,6 +143,7 @@ for(var i = 0; i < stores.length; i++) {
 }
 
 function hourlySalesAllStores() {
+  footerEl.innerHTML = '';
   var tableRowEl = document.createElement('tr');
   footerEl.appendChild(tableRowEl);
   var hourlyTotalSalesTitle = document.createElement('td');
@@ -158,9 +182,9 @@ function handleSubmit(event){
   console.log('!!!new averageCookiesPerCustomer' + event.target.averageCookiesPerCustomer.value);
 
   var storeName = event.target.storeName.value;
-  var minHourlyCustomers = event.target.minHourlyCustomers.value;
-  var maxHourlyCustomers = event.target.maxHourlyCustomers.value;
-  var averageCookiesPerCustomer = event.target.averageCookiesPerCustomer.value;
+  var minHourlyCustomers = Number(event.target.minHourlyCustomers.value);
+  var maxHourlyCustomers = Number(event.target.maxHourlyCustomers.value);
+  var averageCookiesPerCustomer = Number(event.target.averageCookiesPerCustomer.value);
 
   //create a new instance of a Store, and save it into newItem
 
@@ -169,14 +193,18 @@ function handleSubmit(event){
   // maxHourlyCustomer = 6;
   // averageCookiesPerCustomer = 15;
 
-  var store = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
+  var newStore = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
 
-  console.log('!!!!!new store' + store);
+  console.log('PRINTING THE NEW STORE I JUST MADE');
+  console.log(newStore);
+  console.log('DONE PRINTING');
 
-  makeRow(store);
+  makeRow(newStore);
 
-  stores.push(store);
+  stores.push(newStore);
+  hourlySalesAllStores();
 }
+
 
 
 
