@@ -57,17 +57,9 @@ function simulateAmountsOfCookiesPurchasedForEachHour(store){
     console.log('!!!!!!cookiesSoldPerDay:' + cookiesSoldPerDay);
     console.log('!!!!!!simulatedAmountsOfCookiesPurchasedForEachHour:' + simulatedAmountsOfCookiesPurchasedForEachHour);
     console.log('!!!!!!randomNumberOfCustomersPerHour:' + randomNumberOfCustomers);
-
   }
-
   return cookiesSoldPerDay;
-
-
 }
-
-
-
-
 
 var firstAndPike = new Store('1st and Pike', 23, 65, 6.3);
 console.log(firstAndPike);
@@ -94,8 +86,6 @@ tableEl.appendChild(headerEl);
 var footerEl = document.createElement('tfoot');
 tableEl.appendChild(footerEl);
 
-
-
 var tableBodyEl = document.createElement('tbody');
 tableEl.appendChild(tableBodyEl);
 
@@ -121,8 +111,6 @@ function makeRow(store){
 }
 
 var header = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Daily Location Total'];
-
-
 
 function makeHeader(header) {
   //make tr
@@ -185,13 +173,6 @@ function handleSubmit(event){
   var minHourlyCustomers = Number(event.target.minHourlyCustomers.value);
   var maxHourlyCustomers = Number(event.target.maxHourlyCustomers.value);
   var averageCookiesPerCustomer = Number(event.target.averageCookiesPerCustomer.value);
-
-  //create a new instance of a Store, and save it into newItem
-
-  // storeName = "cats";
-  // minHourlyCustomer = 1;
-  // maxHourlyCustomer = 6;
-  // averageCookiesPerCustomer = 15;
 
   var newStore = new Store(storeName, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer);
 
